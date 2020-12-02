@@ -186,6 +186,8 @@ void Fetch<FuncInstr>::clock( Cycle cycle)
     /* log */
     sout << "fetch   cycle " << std::dec << cycle << ": " << instr << " " << bp_info << std::endl;
 
+    csvfile << std::dec << bp_info.pc << ',' << bp_info.target << ',' << bp_info.is_taken << std::endl;
+    
     /* sending to decode */
     wp_datapath->write( std::move( instr), cycle);
 }
