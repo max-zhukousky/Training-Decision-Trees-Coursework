@@ -48,8 +48,12 @@ class Log
 public:
     mutable LogOstream sout;
     mutable LogOstream serr;
+    std::ofstream csvfile;
 
-    Log();
+    Log() : sout( std::cout), serr( std::cerr) 
+    { 
+    	csvfile.open("/home/max/data.csv");
+    }
 
     // Rule of five
     virtual ~Log();
